@@ -7,19 +7,21 @@ const link = caminhoArquivo[2];
 // =========================================================
 
 fs.readFile(link, 'utf-8', (erro, texto) => {
-  quebraEmParagrafos(texto)
+    console.log('qual é o erro?', erro);
+    contaPalavras(texto);
 })
 
-// função que faz a quebra do texto em paragrafos e ao final vericica as palavras duplicadas
-// =========================================================================================
+function contaPalavras(texto) {
+    const paragrafos = extraiParagrafos(texto)
+    const contagem = paragrafos.flatMap((paragrafo) => {
+        if (!paragrafo) return [];
+        return verificaPalavrasDuplicadas(paragrafo);
+    })
+    console.log(contagem);
+}
 
-function quebraEmParagrafos(texto) {
-  const paragrafos = texto.toLowerCase().split('\n');
-  const contagem = paragrafos.flatMap((paragrafo) => {
-    if (!paragrafo) return[];
-    return verificaPalavrasDuplicadas(paragrafo);
-  })
-  console.log(contagem);
+function extraiParagrafos(texto) {
+    return texto.toLowerCase().split('\n');
 }
 
 // função que vericica as palavras duplicadas
