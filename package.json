@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/uryel-farias/Criando-uma-biblioteca-node-js/issues"
   },
-  "homepage": "https://github.com/uryel-farias/Criando-uma-biblioteca-node-js#readme"
+  "homepage": "https://github.com/uryel-farias/Criando-uma-biblioteca-node-js#readme",
+  "dependencies": {
+    "commander": "^14.0.0"
+  }
 }
